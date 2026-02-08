@@ -1,106 +1,50 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #C00000, #FF3334);
-  text-align: center;
-  overflow-x: hidden;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
 }
 
-.container {
+#mainContent {
+  text-align: center;
+  max-width: 600px;
   padding: 20px;
 }
 
-/* Big title */
-.title {
-  font-size: 42px;
-  color: white;
-}
-
-/* Romantic but readable font */
-.quote {
-  font-family: 'Emilys Candy', cursive;
-  font-size: 26px;
-  color: white;
-  min-height: 120px;
-}
-
-/* Photos */
-.photo {
-  width: 80%;
-  max-width: 320px;
-  border-radius: 16px;
-  margin: 12px auto;
-  display: none;
-  animation: fade 1s ease-in;
-}
-
-/* Proposal hidden initially */
-.hidden {
-  display: none;
-}
-
-.question {
-  color: white;
-  margin-top: 30px;
-}
-
-/* Buttons */
-.buttons button {
-  font-size: 20px;
-  padding: 12px 24px;
-  margin: 15px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
+#typingQuote {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  white-space: pre-line;
+  min-height: 150px;
 }
 
 #yesBtn {
-  background: #00b112;
-  color: white;
+  margin-top: 25px;
+  padding: 12px 35px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: white;
+  color: #ff4f7a;
+  transition: transform 0.2s ease;
 }
 
-#noBtn {
-  background: #333;
-  color: white;
+#yesBtn:hover {
+  transform: scale(1.08);
+}
+
+#finalMessage {
   position: absolute;
+  text-align: center;
+  font-size: 1.8rem;
+  white-space: pre-line;
+  padding: 20px;
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
 }
-
-/* Final message */
-.final {
-  font-family: 'Kavoon', cursive;
-  font-size: 34px;
-  color: white;
-  padding: 40px;
-}
-
-/* Hearts */
-.heart {
-  position: absolute;
-  color: red;
-  font-size: 22px;
-  animation: float 6s linear infinite;
-}
-
-/* Confetti */
-.confetti {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  animation: fall 3s linear infinite;
-}
-
-@keyframes float {
-  from { bottom: -20px; opacity: 1; }
-  to { bottom: 100vh; opacity: 0; }
-}
-
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fall {
-  from { top: -10px; }
-  to { top: 100vh; }
-}
-
