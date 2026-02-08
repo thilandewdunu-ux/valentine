@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Big title */
+.title {
+  font-size: 42px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Calligraphy quote */
+.quote {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  color: white;
+  min-height: 120px;
+}
+
+/* Photos */
+.gallery {
+  margin-top: 20px;
+}
+
+.photo {
+  width: 80%;
+  max-width: 320px;
+  border-radius: 16px;
+  margin: 10px auto;
+  display: none;
+  animation: fade 1s ease-in;
+}
+
+/* Question */
+.question {
+  color: white;
+  margin-top: 30px;
+}
+
+/* Buttons */
+.buttons button {
+  font-size: 20px;
+  padding: 12px 24px;
+  margin: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background: #333;
+  color: white;
+  position: absolute;
+}
+
+/* Final message */
+.final {
+  font-family: 'Great Vibes', cursive;
+  font-size: 34px;
+  color: white;
+  padding: 40px;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 22px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { bottom: -20px; opacity: 1; }
+  to { bottom: 100vh; opacity: 0; }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
