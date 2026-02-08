@@ -22,6 +22,8 @@ function showPhotos() {
     photos[p].style.display = "block";
     p++;
     setTimeout(showPhotos, 800);
+  } else {
+    document.getElementById("proposal").style.display = "block";
   }
 }
 
@@ -32,9 +34,12 @@ noBtn.addEventListener("mouseover", () => {
   noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 });
 
-// 4️⃣ YES click → clear screen → final message
+// 4️⃣ YES click → clear → confetti + final message
 document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("mainContent").style.display = "none";
+
+  startConfetti();
+  startHearts();
 
   const finalText = "You just made me the happiest husband 💖 — I love you Hasintha ❤️";
   let i = 0;
@@ -50,12 +55,29 @@ document.getElementById("yesBtn").addEventListener("click", () => {
   typeFinal();
 });
 
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 400);
+// Confetti
+function startConfetti() {
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      ["#ff4d6d", "#fff", "#ffb3c1"][Math.floor(Math.random() * 3)];
+    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+// Hearts
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+}

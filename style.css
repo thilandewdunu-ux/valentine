@@ -14,32 +14,31 @@ body {
 .title {
   font-size: 42px;
   color: white;
-  margin-bottom: 10px;
 }
 
-/* Calligraphy quote */
+/* Romantic but readable font */
 .quote {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 26px;
   color: white;
   min-height: 120px;
 }
 
 /* Photos */
-.gallery {
-  margin-top: 20px;
-}
-
 .photo {
   width: 80%;
   max-width: 320px;
   border-radius: 16px;
-  margin: 10px auto;
+  margin: 12px auto;
   display: none;
   animation: fade 1s ease-in;
 }
 
-/* Question */
+/* Proposal hidden initially */
+.hidden {
+  display: none;
+}
+
 .question {
   color: white;
   margin-top: 30px;
@@ -68,18 +67,26 @@ body {
 
 /* Final message */
 .final {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 34px;
   color: white;
   padding: 40px;
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart {
   position: absolute;
   color: red;
   font-size: 22px;
   animation: float 6s linear infinite;
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: fall 3s linear infinite;
 }
 
 @keyframes float {
@@ -90,4 +97,9 @@ body {
 @keyframes fade {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes fall {
+  from { top: -10px; }
+  to { top: 100vh; }
 }
