@@ -1,7 +1,8 @@
 // 1️⃣ Auto typing quote
-const quoteText = "Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉.
+const quoteText = `Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉.
 Thanks for putting up with me and for being the best part of my day,
-every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT😉🤫🥵❤😘";
+every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT 😉🤫🥵❤😘`;
+
 let q = 0;
 
 function typeQuote() {
@@ -14,6 +15,7 @@ function typeQuote() {
   }
 }
 typeQuote();
+
 
 // 2️⃣ Show photos one by one
 const photos = document.querySelectorAll(".photo");
@@ -83,3 +85,4 @@ function startHearts() {
     setTimeout(() => heart.remove(), 6000);
   }, 400);
 }
+
