@@ -1,90 +1,83 @@
 // 1️⃣ Auto typing quote
-const quoteText = `Happy Valentine’s Day! I love you even more than I love watching TV Series 😉.
-Thanks for putting up with me and for being the best part of my day, every single day.
-Let's eat way too much chocolate tonight 😉🤫🥵❤😘`;
-
+const quoteText = "Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉. Thanks for putting up with me and for being the best part of my day, every single day. Let's eat way too much chocolate tonight 😉🤫🥵❤😘";
 let q = 0;
-const quoteTarget = document.getElementById("typingQuote");
 
 function typeQuote() {
   if (q < quoteText.length) {
-    const char = quoteText.charAt(q);
-    quoteTarget.innerHTML += char;
+    document.getElementById("typingQuote").innerHTML += quoteText.charAt(q);
     q++;
+    setTimeout(typeQuote, 50);
+  } else {
+    showPhotos();
+  }
+}
+typeQuote();
 
-    let delay = 50;
-    if ("😉🤫🥵❤😘".includes(char)) delay = 250;
+// 2️⃣ Show photos one by one
+const photos = document.querySelectorAll(".photo");
+let p = 0;
 
-    setTimeout(typeQuote, delay);
+function showPhotos() {
+  if (p < photos.length) {
+    photos[p].style.display = "block";
+    p++;
+    setTimeout(showPhotos, 800);
+  } else {
+    document.getElementById("proposal").style.display = "block";
   }
 }
 
-typeQuote();
-
+// 3️⃣ NO button runaway
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+});
 
 // 4️⃣ YES click → clear → confetti + final message
 document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("mainContent").style.display = "none";
 
-  const target = document.getElementById("finalMessage");
-  target.innerHTML = "";
-
-  // Play romantic sound
-  const sound = document.getElementById("loveSound");
-  sound.currentTime = 0;
-  sound.volume = 0.6;
-  sound.play();
-
   startConfetti();
   startHearts();
 
-  const finalText = `You just made me the happiest husband 💖
-I love you My Wify කෙල්ල ❤️`;
-
+  const finalText = "You just made me the happiest husband 💖 — I love you Hasintha ❤️";
   let i = 0;
+  const target = document.getElementById("finalMessage");
 
   function typeFinal() {
     if (i < finalText.length) {
-      const char = finalText.charAt(i);
-      target.innerHTML += char;
+      target.innerHTML += finalText.charAt(i);
       i++;
-
-      let delay = 70;
-      if ("💖❤️💓".includes(char)) delay = 350;
-
-      setTimeout(typeFinal, delay);
+      setTimeout(typeFinal, 70);
     }
   }
-
   typeFinal();
 });
 
-
-// 🎉 Confetti (simple)
+// Confetti
 function startConfetti() {
   for (let i = 0; i < 80; i++) {
-    const conf = document.createElement("div");
-    conf.className = "confetti";
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.animationDuration = Math.random() * 3 + 2 + "s";
-    document.body.appendChild(conf);
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      ["#ff4d6d", "#fff", "#ffb3c1"][Math.floor(Math.random() * 3)];
+    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+    document.body.appendChild(confetti);
 
-    setTimeout(() => conf.remove(), 5000);
+    setTimeout(() => confetti.remove(), 3000);
   }
 }
 
-// 💕 Floating hearts
+// Hearts
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.style.position = "absolute";
+    heart.className = "heart";
+    heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "0";
-    heart.style.fontSize = Math.random() * 20 + 20 + "px";
-    heart.style.animation = "floatUp 4s linear";
     document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 4000);
+    setTimeout(() => heart.remove(), 6000);
   }, 400);
 }
