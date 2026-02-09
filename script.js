@@ -1,7 +1,7 @@
 // 1️⃣ Auto typing quote
-const quoteText = `Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉.
+const quoteText = `Happy Valentine’s Day! I love you even more than I love watching TV series 😉.
 Thanks for putting up with me and for being the best part of my day,
-every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT 😉🤫🥵❤😘`;
+every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT 😉🤫🥵❤️😘`;
 
 let q = 0;
 
@@ -16,7 +16,6 @@ function typeQuote() {
 }
 typeQuote();
 
-
 // 2️⃣ Show photos one by one
 const photos = document.querySelectorAll(".photo");
 let p = 0;
@@ -24,28 +23,29 @@ let p = 0;
 function showPhotos() {
   if (p < photos.length) {
     photos[p].style.display = "block";
+    photos[p].scrollIntoView({ behavior: "smooth" });
     p++;
     setTimeout(showPhotos, 800);
   } else {
-    document.getElementById("proposal").style.display = "block";
+    document.getElementById("proposal").classList.remove("hidden");
   }
 }
 
 // 3️⃣ NO button runaway
 const noBtn = document.getElementById("noBtn");
 noBtn.addEventListener("mouseover", () => {
-  noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-  noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+  noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+  noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
 });
 
-// 4️⃣ YES click → clear → confetti + final message
+// 4️⃣ YES click
 document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("mainContent").style.display = "none";
 
   startConfetti();
   startHearts();
 
-  const finalText = "You just made me the happiest husband 💖 — I love you My Wify කෙල්ල ❤️";
+  const finalText = "You just made me the happiest husband 💖 — I love you my wify කෙල්ල ❤️";
   let i = 0;
   const target = document.getElementById("finalMessage");
 
@@ -85,4 +85,3 @@ function startHearts() {
     setTimeout(() => heart.remove(), 6000);
   }, 400);
 }
-
