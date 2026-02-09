@@ -3,27 +3,28 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #d60000, #ff2644);
   text-align: center;
-  overflow: hidden; /* prevent scroll from confetti & NO button */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .container {
   padding: 20px;
-  position: relative; /* needed for NO button positioning */
+  position: relative;
 }
 
-/* Big title */
+/* Title */
 .title {
   font-size: 42px;
   color: white;
 }
 
-/* Romantic but readable font */
+/* Quote */
 .quote {
   font-family: 'Courgette', cursive;
   font-size: 26px;
   color: white;
   min-height: 120px;
-  white-space: pre-line; /* 🔥 FIX for JS line breaks */
+  white-space: pre-line;
 }
 
 /* Photos */
@@ -36,11 +37,12 @@ body {
   animation: fade 1s ease-in;
 }
 
-/* Proposal hidden initially */
+/* Hidden */
 .hidden {
   display: none;
 }
 
+/* Question */
 .question {
   color: white;
   margin-top: 30px;
@@ -69,7 +71,7 @@ body {
 #noBtn {
   background: #333;
   color: white;
-  position: absolute; /* required for runaway effect */
+  position: absolute;
 }
 
 /* Final message */
@@ -78,13 +80,12 @@ body {
   font-size: 34px;
   color: white;
   padding: 40px;
-  text-align: center;
 }
 
 /* Hearts */
 .heart {
   position: absolute;
-  bottom: -20px; /* 🔥 FIX */
+  bottom: -20px;
   font-size: 22px;
   animation: float 6s linear infinite;
 }
@@ -100,14 +101,8 @@ body {
 
 /* Animations */
 @keyframes float {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
 }
 
 @keyframes fade {
@@ -120,17 +115,9 @@ body {
   to { transform: translateY(110vh); }
 }
 
-/* Mobile friendly */
+/* Mobile */
 @media (max-width: 480px) {
-  .title {
-    font-size: 34px;
-  }
-
-  .quote {
-    font-size: 22px;
-  }
-
-  .final {
-    font-size: 26px;
-  }
+  .title { font-size: 34px; }
+  .quote { font-size: 22px; }
+  .final { font-size: 26px; }
 }
