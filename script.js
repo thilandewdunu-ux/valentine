@@ -34,11 +34,12 @@ function showPhotos() {
 // 3️⃣ NO button runaway
 const noBtn = document.getElementById("noBtn");
 noBtn.addEventListener("mouseover", () => {
-  noBtn.style.left = Math.random() * (window.innerWidth - 120) + "px";
-  noBtn.style.top = Math.random() * (window.innerHeight - 60) + "px";
+  // Keep button within page
+  noBtn.style.left = Math.random() * 200 + "px";
+  noBtn.style.top = Math.random() * 200 + "px";
 });
 
-// 4️⃣ YES click
+// 4️⃣ YES click → confetti + hearts + final message
 document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("mainContent").style.display = "none";
 
@@ -69,7 +70,6 @@ function startConfetti() {
       ["#ff4d6d", "#fff", "#ffb3c1"][Math.floor(Math.random() * 3)];
     confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
     document.body.appendChild(confetti);
-
     setTimeout(() => confetti.remove(), 3000);
   }
 }
