@@ -3,11 +3,12 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #d60000, #ff2644);
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden; /* prevent scroll from confetti & NO button */
 }
 
 .container {
   padding: 20px;
+  position: relative; /* needed for NO button positioning */
 }
 
 /* Big title */
@@ -22,6 +23,7 @@ body {
   font-size: 26px;
   color: white;
   min-height: 120px;
+  white-space: pre-line; /* 🔥 FIX for JS line breaks */
 }
 
 /* Photos */
@@ -42,9 +44,14 @@ body {
 .question {
   color: white;
   margin-top: 30px;
+  font-size: 28px;
 }
 
 /* Buttons */
+.buttons {
+  position: relative;
+}
+
 .buttons button {
   font-size: 20px;
   padding: 12px 24px;
@@ -62,7 +69,7 @@ body {
 #noBtn {
   background: #333;
   color: white;
-  position: absolute;
+  position: absolute; /* required for runaway effect */
 }
 
 /* Final message */
@@ -71,12 +78,13 @@ body {
   font-size: 34px;
   color: white;
   padding: 40px;
+  text-align: center;
 }
 
 /* Hearts */
 .heart {
   position: absolute;
-  color: red;
+  bottom: -20px; /* 🔥 FIX */
   font-size: 22px;
   animation: float 6s linear infinite;
 }
@@ -86,12 +94,20 @@ body {
   position: absolute;
   width: 10px;
   height: 10px;
+  top: -10px;
   animation: fall 3s linear infinite;
 }
 
+/* Animations */
 @keyframes float {
-  from { bottom: -20px; opacity: 1; }
-  to { bottom: 100vh; opacity: 0; }
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
 }
 
 @keyframes fade {
@@ -100,6 +116,21 @@ body {
 }
 
 @keyframes fall {
-  from { top: -10px; }
-  to { top: 100vh; }
+  from { transform: translateY(0); }
+  to { transform: translateY(110vh); }
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+  .title {
+    font-size: 34px;
+  }
+
+  .quote {
+    font-size: 22px;
+  }
+
+  .final {
+    font-size: 26px;
+  }
 }
