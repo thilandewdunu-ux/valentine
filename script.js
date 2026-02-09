@@ -1,5 +1,7 @@
 // 1️⃣ Auto typing quote
-const quoteText = "Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉. Thanks for putting up with me and for being the best part of my day, every single day. Let's eat way too much chocolate tonight 😉🤫🥵❤😘";
+const quoteText = "Happy Valentine’s Day! I love you even more than I love Watching TV Series 😉.
+Thanks for putting up with me and for being the best part of my day,
+every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT😉🤫🥵❤😘";
 let q = 0;
 
 function typeQuote() {
@@ -41,7 +43,7 @@ document.getElementById("yesBtn").addEventListener("click", () => {
   startConfetti();
   startHearts();
 
-  const finalText = "You just made me the happiest husband 💖 — I love you Hasintha ❤️";
+  const finalText = "You just made me the happiest husband 💖 — I love you My Wify කෙල්ල ❤️";
   let i = 0;
   const target = document.getElementById("finalMessage");
 

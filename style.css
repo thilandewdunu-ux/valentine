@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  background: linear-gradient(to bottom, #d60000, #ff2644);
   text-align: center;
   overflow-x: hidden;
 }
@@ -18,7 +18,7 @@ body {
 
 /* Romantic but readable font */
 .quote {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Courgette', cursive;
   font-size: 26px;
   color: white;
   min-height: 120px;
@@ -67,7 +67,7 @@ body {
 
 /* Final message */
 .final {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Courgette', cursive;
   font-size: 34px;
   color: white;
   padding: 40px;
