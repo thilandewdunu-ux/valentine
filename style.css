@@ -3,9 +3,11 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #d60000, #ff2644);
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto; /* important for scrolling */
 }
 
-/* Password Screen */
+/* PASSWORD SCREEN */
 .password-screen {
   position: fixed;
   width: 100%;
@@ -23,6 +25,7 @@ body {
   font-size: 26px;
   color: white;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .password-screen input {
@@ -45,9 +48,10 @@ body {
 
 #errorMsg {
   color: yellow;
+  margin-top: 10px;
 }
 
-/* Main hidden initially */
+/* MAIN CONTENT */
 #mainContent {
   display: none;
   padding: 20px;
@@ -63,6 +67,7 @@ body {
   font-size: 26px;
   color: white;
   min-height: 120px;
+  white-space: pre-line;
 }
 
 .photo {
@@ -118,6 +123,7 @@ body {
   position: fixed;
   bottom: -20px;
   font-size: 22px;
+  pointer-events: none;
   animation: float 6s linear forwards;
 }
 
@@ -125,6 +131,7 @@ body {
   position: fixed;
   width: 10px;
   height: 10px;
+  pointer-events: none;
   animation: fall 3s linear forwards;
 }
 
