@@ -1,4 +1,4 @@
-const correctPassword = "hasi123";
+const correctPassword = "0121";
 
 document.getElementById("unlockBtn").addEventListener("click", function() {
   const input = document.getElementById("passwordInput").value;
