@@ -1,4 +1,18 @@
-// 1️⃣ Auto typing quote
+const correctPassword = "hasi123";
+
+document.getElementById("unlockBtn").addEventListener("click", function() {
+  const input = document.getElementById("passwordInput").value;
+
+  if (input === correctPassword) {
+    document.getElementById("passwordScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    typeQuote();
+  } else {
+    document.getElementById("errorMsg").innerText = "Wrong password 😝";
+  }
+});
+
+// Typing Quote
 const quoteText = `Happy Valentine’s Day! I love you even more than I love watching TV series 😉.
 Thanks for putting up with me and for being the best part of my day,
 every single day. LET'S EAT WAY TOO MUCH CHOCOLATE TONIGHT 😉🤫🥵❤️😘`;
@@ -14,16 +28,14 @@ function typeQuote() {
     showPhotos();
   }
 }
-typeQuote();
 
-// 2️⃣ Show photos one by one
+// Show Photos
 const photos = document.querySelectorAll(".photo");
 let p = 0;
 
 function showPhotos() {
   if (p < photos.length) {
     photos[p].style.display = "block";
-    photos[p].scrollIntoView({ behavior: "smooth" });
     p++;
     setTimeout(showPhotos, 800);
   } else {
@@ -31,18 +43,16 @@ function showPhotos() {
   }
 }
 
-// 3️⃣ NO button runaway
+// NO button runaway
 const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", () => {
-  // Keep button within page
-  noBtn.style.left = Math.random() * 200 + "px";
+noBtn.addEventListener("mouseover", function() {
+  noBtn.style.left = Math.random() * 250 + "px";
   noBtn.style.top = Math.random() * 200 + "px";
 });
 
-// 4️⃣ YES click → confetti + hearts + final message
-document.getElementById("yesBtn").addEventListener("click", () => {
+// YES click
+document.getElementById("yesBtn").addEventListener("click", function() {
   document.getElementById("mainContent").style.display = "none";
-
   startConfetti();
   startHearts();
 
@@ -68,7 +78,6 @@ function startConfetti() {
     confetti.style.left = Math.random() * 100 + "vw";
     confetti.style.backgroundColor =
       ["#ff4d6d", "#fff", "#ffb3c1"][Math.floor(Math.random() * 3)];
-    confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
     document.body.appendChild(confetti);
     setTimeout(() => confetti.remove(), 3000);
   }
