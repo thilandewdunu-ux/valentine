@@ -3,30 +3,68 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #d60000, #ff2644);
   text-align: center;
-  overflow-x: hidden; /* allow vertical scroll */
 }
 
-.container {
+/* Password Screen */
+.password-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ff2644, #d60000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.memory-text {
+  font-family: 'Courgette', cursive;
+  font-size: 26px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.password-screen input {
+  padding: 10px;
+  font-size: 18px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.password-screen button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #d60000;
+  cursor: pointer;
+}
+
+#errorMsg {
+  color: yellow;
+}
+
+/* Main hidden initially */
+#mainContent {
+  display: none;
   padding: 20px;
-  max-width: 100%;
 }
 
-/* Title */
 .title {
   font-size: 42px;
   color: white;
 }
 
-/* Quote */
 .quote {
   font-family: 'Courgette', cursive;
   font-size: 26px;
   color: white;
   min-height: 120px;
-  white-space: pre-line;
 }
 
-/* Photos */
 .photo {
   width: 80%;
   max-width: 320px;
@@ -36,19 +74,15 @@ body {
   animation: fade 1s ease-in;
 }
 
-/* Hidden */
 .hidden {
   display: none;
 }
 
-/* Question */
 .question {
   color: white;
   margin-top: 30px;
-  font-size: 28px;
 }
 
-/* Buttons */
 .buttons {
   position: relative;
 }
@@ -73,7 +107,6 @@ body {
   position: absolute;
 }
 
-/* Final message */
 .final {
   font-family: 'Courgette', cursive;
   font-size: 34px;
@@ -81,29 +114,23 @@ body {
   padding: 40px;
 }
 
-/* Hearts */
 .heart {
-  position: absolute;
+  position: fixed;
   bottom: -20px;
   font-size: 22px;
-  pointer-events: none;
-  animation: float 6s linear infinite;
+  animation: float 6s linear forwards;
 }
 
-/* Confetti */
 .confetti {
-  position: absolute;
+  position: fixed;
   width: 10px;
   height: 10px;
-  top: -10px;
-  pointer-events: none;
-  animation: fall 3s linear infinite;
+  animation: fall 3s linear forwards;
 }
 
-/* Animations */
 @keyframes float {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-110vh); opacity: 0; }
+  from { bottom: -20px; opacity: 1; }
+  to { bottom: 100vh; opacity: 0; }
 }
 
 @keyframes fade {
@@ -112,13 +139,6 @@ body {
 }
 
 @keyframes fall {
-  from { transform: translateY(0); }
-  to { transform: translateY(110vh); }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .title { font-size: 34px; }
-  .quote { font-size: 22px; }
-  .final { font-size: 26px; }
+  from { top: -10px; }
+  to { top: 100vh; }
 }
